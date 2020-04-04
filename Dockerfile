@@ -14,6 +14,7 @@ COPY . ${HOME}
 ## clone of your repository
 ## COPY binder ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
+RUN apt-get update && apt-get install -y build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev && apt-get clean 
 
 ## Become normal user again
 USER ${NB_USER}
